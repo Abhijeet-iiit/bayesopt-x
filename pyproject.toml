@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bayesopt-x"
+version = "0.1.0"
+description = "Bayesian Optimization for expensive black-box functions."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "UNLICENSED"}
+authors = [
+    { name = "BayesOpt-X authors" },
+]
+keywords = [
+    "bayesian-optimization",
+    "gaussian-process",
+    "acquisition-function",
+    "black-box-optimization",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy==2.4.6",
+    "scipy==1.17.1",
+    "scikit-learn==1.9.1",
+    "pandas==3.0.5",
+    "matplotlib==3.11.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "ruff==0.13.3",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*", "experiments*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["src", "experiments", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["B018"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src", "experiments"]
