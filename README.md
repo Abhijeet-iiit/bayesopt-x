@@ -215,4 +215,6 @@ Plots from those CSVs are in `results/plots/`.
 
 ## License
 
-There is no `LICENSE` file in this repository. Until one is added, do not assume permission to reuse the code.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
